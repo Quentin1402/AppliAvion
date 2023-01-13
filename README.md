@@ -1,1 +1,1 @@
-J'ai pas pu tester les vols l'API était down toute la journée du 10/01/2023
+J'ai pas pu faire tester les favori, finir l'affichage des vols ni faire les détails des vols parce que l'Api est down.
