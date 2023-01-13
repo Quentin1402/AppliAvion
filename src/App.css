@@ -1,0 +1,25 @@
+#airport{
+  background-color : #33FFE9;
+}
+
+#accueil{
+  color : black;
+}
+
+#aeroport{
+  color : black;
+}
+
+#vol{
+  color : black;
+}
+
+#favori{
+  color : black;
+}
+
+body{
+  background-size: 100%;
+  background-image: url(avion.png);
+  text-align : center;
+}
