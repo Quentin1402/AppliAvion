@@ -8,7 +8,7 @@ export type Airport = {
 export type Vol = {
     date: string;
     id: string;
-    legs : [
+    legs : 
         {origin:{
             id: number,
             name:string
@@ -19,6 +19,8 @@ export type Vol = {
             id:"string",
             departure:string,
             arrival:string
+        }[],
+    price : {
+            amount :number
         }
-    ],
 }
