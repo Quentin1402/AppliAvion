@@ -3,7 +3,7 @@ import '../App.css';
 import VolItem from './AfficheVol';
 import { Vol } from "../types/types"
 import { Button, Form, Header, Row, Search, Wrapper } from './styled';
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 
 
 const App2: React.FC = () => {
@@ -53,15 +53,22 @@ const App2: React.FC = () => {
         }
     };
 
-    axios.request(options).then(function (response) {
-      console.log(response.data);
+    axios.request(options).then(function (response :AxiosResponse<{data: Vol[]}>) {
       const data = response.data;
+      console.log(data)
       if(data.data.length == 0) {
         setError(true)
         setMessage("Aucun vol trouvé avec ces paramètres")
         setVol([])
       } else {
-        setError(false)
+        data.data.sort((volA, volB) => {
+          if(volA.price.amount > volB.price.amount) {
+            return 1;
+          } else {
+            return -1;
+          }
+        })
+        setError(false)        
         setVol(data.data)
       }
     }).catch(function (error) {
