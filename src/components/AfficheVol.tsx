@@ -24,17 +24,32 @@ const VolItem: React.FC<VolProps> = ({vol}) =>{
     };
 
     return(
-        <CardWrapper>
-            <CardTop>
-                <p>Aéroport de départ : {vol.legs[0].origin.name}</p>
-                <p>Aéroport d'arrivée : {vol.legs[0].destination.name}</p>
-            </CardTop>
-            <CardBottom>
-                <p>Date de départ : {vol.legs[0].departure.toLocaleString()}</p>
-                <p>Date d'arrivée : {vol.legs[0].arrival.toLocaleString()}</p>
-                {/*<button onClick={handleFavoriteClick}>Ajouter au favoris</button>*/}
-            </CardBottom>
-        </CardWrapper>
+        <>
+            <CardWrapper>
+                <CardTop>
+                    <p>Aéroport de départ allé : {vol.legs[0].origin.name}</p>
+                    <p>Aéroport d'arrivée allé : {vol.legs[0].destination.name}</p>
+                </CardTop>
+                <CardBottom>
+                    <p>Date de départ allé : {vol.legs[0].departure.toLocaleString()}</p>
+                    <p>Date d'arrivée allé : {vol.legs[0].arrival.toLocaleString()}</p>
+                    <button onClick={handleFavoriteClick}>Ajouter au favoris</button>
+                </CardBottom>
+            </CardWrapper>
+            {vol.legs[1]? 
+                <CardWrapper>
+                    <CardTop>
+                        <p>Aéroport de départ retour : {vol.legs[1].origin.name}</p>
+                        <p>Aéroport d'arrivée retour : {vol.legs[1].destination.name}</p>
+                    </CardTop>
+                    <CardBottom>
+                        <p>Date de départ retour : {vol.legs[1].departure.toLocaleString()}</p>
+                        <p>Date d'arrivée retour : {vol.legs[1].arrival.toLocaleString()}</p>
+                        <button onClick={handleFavoriteClick}>Ajouter au favoris</button>
+                    </CardBottom>
+                </CardWrapper>
+            : null}
+        </>
     )
 }
 
